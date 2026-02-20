@@ -1,25 +1,21 @@
 'use client'
 import React, { useState } from 'react'
 import { Mail, Lock, Eye, CheckCircle2, EyeOff } from 'lucide-react'
+import { LoginPayload } from '@/app/api/auth';
 
 interface LoginProps {
     handleAuthStateChange: (state: "login" | "register" | "verify" | "checkInbox" | "workspace") => void;
+    handleLogin(): void;
+    handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
+    formData: LoginPayload;
 }
 
-export default function Login({ handleAuthStateChange }: LoginProps): React.JSX.Element {
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    })
+export default function Login({ handleAuthStateChange, handleChange, formData, handleLogin }: LoginProps): React.JSX.Element {
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(formData);
+        handleLogin();
         //TODO: Implement actual login logic here, and on success:
         // handleAuthStateChange("workspace");
     }
@@ -97,6 +93,7 @@ export default function Login({ handleAuthStateChange }: LoginProps): React.JSX.
                     <button
                         type="submit"
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-lg shadow-indigo-200 transition-all active:scale-[0.98]"
+                        onClick={handleLogin}
                     >
                         Sign In
                     </button>

@@ -1,36 +1,36 @@
 'use client'
 import React, { useState } from 'react'
 import { Mail, Lock, Eye, EyeOff, CheckCircle2, User, UserCircle } from 'lucide-react'
+import { RegisterPayload } from '@/app/api/auth';
 
 interface RegisterProps {
     handleAuthStateChange: (state: "login" | "register" | "verify" | "checkInbox" | "workspace") => void;
+    handleRegister: () => void;
+    formData: RegisterPayload;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Register({ handleAuthStateChange }: RegisterProps): React.JSX.Element {
+export default function Register({ handleAuthStateChange, handleRegister, formData, handleChange }: RegisterProps): React.JSX.Element {
     const [step, setStep] = useState(1);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState("");
 
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-        confirmPassword: "",
-        firstName: "",
-        lastName: "",
-        username: "",
-    })
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleLocalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-        if (name === "confirmPassword" && passwordError) {
-            setPasswordError(false);
+        if (name === "confirmPassword") {
+            setConfirmPassword(value);
+            if (passwordError) {
+                setPasswordError(false);
+            }
+        } else {
+            handleChange(e);
         }
     }
 
     const handleNext = () => {
-        if (formData.password !== formData.confirmPassword || formData.confirmPassword === "") {
+        if (formData.password !== confirmPassword || confirmPassword === "") {
             setPasswordError(true);
         } else {
             setPasswordError(false);
@@ -46,6 +46,7 @@ export default function Register({ handleAuthStateChange }: RegisterProps): Reac
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         console.log("Final Registration Data:", formData);
+        handleRegister();
     }
 
     const handleGoToLogin = () => {
@@ -122,8 +123,8 @@ export default function Register({ handleAuthStateChange }: RegisterProps): Reac
                                     <input
                                         type={showConfirmPassword ? "text" : "password"}
                                         name="confirmPassword" placeholder="••••••••"
-                                        value={formData.confirmPassword}
-                                        onChange={handleChange}
+                                        value={confirmPassword}
+                                        onChange={handleLocalChange}
                                         className={`w-full pl-11 pr-11 py-3 bg-slate-50 border rounded-xl focus:ring-2 outline-none transition-all ${passwordError ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-indigo-500'
                                             }`}
                                     />
