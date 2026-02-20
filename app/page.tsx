@@ -157,6 +157,12 @@ export default function Home() {
     setLoginFormData(prev => ({ ...prev, [name]: value }));
   }, []);
 
+  const handleLogout = React.useCallback(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setAuthState("login");
+  }, []);
+
   return (
     <div className="">
       {(() => {
