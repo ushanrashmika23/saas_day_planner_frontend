@@ -56,7 +56,7 @@ export default function Login({ handleAuthStateChange, handleChange, formData, h
                                 placeholder="you@example.com"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+                                className="w-full pl-11 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all placeholder:text-slate-500"
                             />
                         </div>
                     </div>
@@ -72,7 +72,7 @@ export default function Login({ handleAuthStateChange, handleChange, formData, h
                                 placeholder="••••••••"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className="w-full pl-11 pr-11 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+                                className="w-full pl-11 pr-11 py-3 bg-slate-100 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all placeholder:text-slate-500"
                             />
                             {
                                 !showPassword ? (

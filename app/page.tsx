@@ -7,6 +7,7 @@ import CheckInbox from "./views/auth/checkInbox";
 import VerificationResult from "./views/auth/verifyEmail";
 import { decode } from "./utils/verificationEncryptation";
 import Dashboard from "./views/workspace/dashboard";
+import Layout from "./views/workspace/layout";
 
 export default function Home() {
   const [authState, setAuthState] = React.useState<"login" | "register" | "verify" | "checkInbox" | "workspace">("login");
@@ -188,7 +189,7 @@ export default function Home() {
           case "verify":
             return <VerificationResult verificationStatus={verificationStatus} email={candidateEmail} handleResend={() => { handleResendVerificationEmail(candidateEmail); setAuthState("checkInbox"); }} handleVerification={handleVerification} isVerifying={isVerifying} />;
           case "workspace":
-            return <Dashboard />;
+            return <Layout />;
           default:
             return null;
         }

@@ -90,7 +90,7 @@ export default function Register({ handleAuthStateChange, handleRegister, formDa
                                     <input
                                         type="email" name="email" placeholder="you@example.com"
                                         value={formData.email} onChange={handleChange}
-                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                        className="w-full pl-11 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
                                     />
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ export default function Register({ handleAuthStateChange, handleRegister, formDa
                                         type={showPassword ? "text" : "password"}
                                         name="password" placeholder="••••••••"
                                         value={formData.password} onChange={handleChange}
-                                        className="w-full pl-11 pr-11 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                        className="w-full pl-11 pr-11 py-3 bg-slate-100 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
                                     />
                                     <button
                                         type="button" onClick={() => setShowPassword(!showPassword)}
@@ -125,7 +125,7 @@ export default function Register({ handleAuthStateChange, handleRegister, formDa
                                         name="confirmPassword" placeholder="••••••••"
                                         value={confirmPassword}
                                         onChange={handleLocalChange}
-                                        className={`w-full pl-11 pr-11 py-3 bg-slate-50 border rounded-xl focus:ring-2 outline-none transition-all ${passwordError ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-indigo-500'
+                                        className={`w-full pl-11 pr-11 py-3 bg-slate-100 border rounded-xl focus:ring-2 outline-none transition-all ${passwordError ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-indigo-500'
                                             }`}
                                     />
                                     <button
@@ -154,18 +154,18 @@ export default function Register({ handleAuthStateChange, handleRegister, formDa
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
-                                    <input type="text" placeholder='John' name="firstName" value={formData.firstName} onChange={handleChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" />
+                                    <input type="text" placeholder='John' name="firstName" value={formData.firstName} onChange={handleChange} className="w-full p-3 bg-slate-100 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
-                                    <input type="text" name="lastName" placeholder='Doe' value={formData.lastName} onChange={handleChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" />
+                                    <input type="text" name="lastName" placeholder='Doe' value={formData.lastName} onChange={handleChange} className="w-full p-3 bg-slate-100 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" />
                                 </div>
                             </div>
                             <div>
                                 <label className="block text-sm font-semibold text-slate-700 mb-2">Username</label>
                                 <div className="relative">
                                     <UserCircle className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-                                    <input type="text" name="username" placeholder='john_doe' value={formData.username} onChange={handleChange} className="w-full pl-11 p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" />
+                                    <input type="text" name="username" placeholder='john_doe' value={formData.username} onChange={handleChange} className="w-full pl-11 p-3 bg-slate-100 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" />
                                 </div>
                             </div>
                             <div className="flex gap-3">
